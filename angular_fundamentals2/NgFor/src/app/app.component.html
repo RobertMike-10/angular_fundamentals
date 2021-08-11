@@ -1,0 +1,81 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<div class="app">
+  <h3>Airline Passengers</h3>
+  <h5> We have {{passengers.length}} passengers </h5>
+ 
+  <h3>Airline Passengers</h3>
+  <ul>
+    <li *ngFor="let passenger of passengers; let i = index;">
+      {{ i }}: {{ passenger.fullname }}
+      <span class="status"
+      [class.checked-in]="passenger.checkedIn">
+    </span>
+      <div *ngIf="passenger.checkedIn">
+        Is Checked In
+      </div>
+      <div *ngIf="!passenger.checkedIn">
+        Is Not Checked In
+      </div>
+    </li>
+  </ul>
+  <h3>Airline Passengers</h3>
+      <ul>
+        <li *ngFor="let passenger of passengers; let i = index;">
+          <span
+            class="status"
+            [ngClass]="{
+              'checked-in': passenger.checkedIn,
+              'checked-out': !passenger.checkedIn
+            }"></span>
+          {{ i }}: {{ passenger.fullname }}
+        </li>
+      </ul>
+    <h3>Airline Passengers</h3>
+      <ul>
+        <li *ngFor="let passenger of passengers; let i = index;">
+          <span
+            class="status"
+            [style.backgroundColor]="(passenger.checkedIn ? '#2ecc71':'#c0392b')"></span>
+          {{ i }}: {{ passenger.fullname }}
+        </li>
+      </ul>
+      <h3>Airline Passengers</h3>
+      <ul>
+        <li *ngFor="let passenger of passengers; let i = index;">
+          <span
+            class="status"
+            [ngStyle]="{backgroundColor: (passenger.checkedIn ? '#2ecc71':'#c0392b')}"></span>
+          {{ i }}: {{ passenger.fullname }}
+          <p>{{passenger|json}} </p>
+          <div class="date">
+           Check in Date: 
+           {{passenger.checkedIn? (passenger.checkInDate | date:'y MMMM d') : 'Not checked In'}}
+          </div>
+          <div class="children">
+            Children:{{passenger.children?.length || 0}}
+            <div *ngIf="passenger.children != null"> 
+            <ul>
+              <li *ngFor="let child of passenger.children; let i = index;">
+                {{ i }}: {{ child.name }} has {{child.age}} years old
+              </ul>
+            </div>
+          </div>
+        </li>
+      </ul>
+</div>
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
