@@ -56,8 +56,7 @@ export class PassengerDetailsComponent implements OnChanges,OnInit{
   edit: EventEmitter<any>=new EventEmitter();
   constructor(){}
   ngOnChanges(changes: SimpleChanges): void {
-    //console.log('ngOnChanges');
-    console.log(changes);
+    //console.log(changes);
     if (changes.detail)
     {
       this.detail = Object.assign({},changes.detail.currentValue)

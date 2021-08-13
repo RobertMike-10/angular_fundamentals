@@ -27,6 +27,7 @@ export class PassengerDashboardComponent implements OnInit {
        return {id: p.id,
          fullname:p.fullname,checkedIn:p.checkedIn,
          checkInDate:p.checkInDate,
+         baggage:p.baggage,
          children:p.children};
       });
       console.log(this.passengers);
@@ -44,6 +45,7 @@ export class PassengerDashboardComponent implements OnInit {
        return {id: p.id,
          fullname:p.fullname,checkedIn:p.checkedIn,
          checkInDate:p.checkInDate,
+         baggage:p.baggage,
          children:p.children};
       });
       console.log(this.passengers);
