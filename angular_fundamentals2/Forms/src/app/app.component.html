@@ -6,8 +6,18 @@
 <!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
 <!-- * * * * * * * to get started with your project! * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<div class ='app'>
+  <nav class = 'nav'>
+  <a *ngFor="let item of nav"
+  [routerLink]="item.link"
+  routerLinkActive="active"
+  [routerLinkActiveOptions]="{exact:item.exact}">
+   {{item.name}}
+  </a>
+</nav>
+  <router-outlet></router-outlet>
+</div>
 
-<passenger-dashboard></passenger-dashboard>
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
 <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->

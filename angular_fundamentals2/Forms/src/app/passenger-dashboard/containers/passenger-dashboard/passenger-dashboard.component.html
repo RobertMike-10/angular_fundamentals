@@ -9,7 +9,6 @@
 
 <div class="app">
 
-  <passenger-viewer></passenger-viewer>
   <h3>Airline Passengers</h3>
   <passenger-count [items]="passengers"></passenger-count>
 
@@ -22,6 +21,7 @@
     <passenger-details  *ngFor="let passenger of passengers"
     [detail]="passenger"
     (edit)="handleEdit($event)"
+    (view)="handleView($event)"
     (remove)="handleRemove($event)"></passenger-details>
     </div>
  </ul>

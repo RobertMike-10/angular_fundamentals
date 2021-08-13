@@ -2,6 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import {Child} from '../../models/passenger.interfaces';
 import {Passenger} from '../../models/passenger.interfaces';
 import {PassengerDashboardService} from '../../services/passenger-dashboard.services';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'passenger-dashboard',
@@ -12,7 +13,8 @@ import {PassengerDashboardService} from '../../services/passenger-dashboard.serv
 export class PassengerDashboardComponent implements OnInit {
   passengers: Passenger[] =[] ;
 
-  constructor(private myService:PassengerDashboardService){
+  constructor(private route:ActivatedRoute,
+    private router:Router,private myService:PassengerDashboardService){
   }
 
   ngOnInit(): void {
@@ -55,12 +57,15 @@ export class PassengerDashboardComponent implements OnInit {
   handleRemove(event:Passenger){
     this.myService.
     removePassenger(event).subscribe((data:Passenger)=>  this.getPassengers());
-
-    //this.passengers = this.passengers.filter((p:Passenger) => event.id != p.id);
   }
   handleEdit(event:Passenger){
     this.myService.
     updatePassenger(event).subscribe((data:Passenger)=>  this.getPassengersPromise());
 
   }
+  handleView(event:Passenger){
+   this.router.navigate(['/passengers', event.id])
+  }
+
+
 }

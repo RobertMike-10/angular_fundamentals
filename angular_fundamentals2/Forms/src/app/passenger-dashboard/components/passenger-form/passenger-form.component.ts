@@ -87,7 +87,7 @@ import { IBaggage } from '../../models/baggage.interface';
        Valid: {{form.valid | json}}
       </div> !-->
       <button type ="submit" [disabled]="form.invalid">
-        Update Passenger
+        Update
        </button>
       <!--<<div>
        Invalid: {{form.invalid | json}}

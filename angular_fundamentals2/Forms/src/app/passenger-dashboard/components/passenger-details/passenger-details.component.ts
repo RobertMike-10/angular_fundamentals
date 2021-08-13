@@ -41,6 +41,10 @@ import {Passenger} from '../../models/passenger.interfaces';
      <button (click)="removePassenger()" style="margin-left:5px;background:#B93E39;">
        Remove
      </button>
+
+     <button (click)="goToPassenger()" style="margin-left:5px;">
+       View
+     </button>
   </div>
   </li>
 `
@@ -51,9 +55,12 @@ export class PassengerDetailsComponent implements OnChanges,OnInit{
   detail! :Passenger;
   editing:boolean =false;
   @Output()
-  remove: EventEmitter<any>=new EventEmitter();
+  remove: EventEmitter<Passenger>=new EventEmitter<Passenger>();
   @Output()
-  edit: EventEmitter<any>=new EventEmitter();
+  edit: EventEmitter<Passenger>=new EventEmitter<Passenger>();
+  @Output()
+  view: EventEmitter<Passenger>=new EventEmitter<Passenger>();
+
   constructor(){}
   ngOnChanges(changes: SimpleChanges): void {
     //console.log(changes);
@@ -80,4 +87,8 @@ export class PassengerDetailsComponent implements OnChanges,OnInit{
   removePassenger(){
     this.remove.emit(this.detail);
   }
+  goToPassenger(){
+    this.view.emit(this.detail);
+  }
+
 }
